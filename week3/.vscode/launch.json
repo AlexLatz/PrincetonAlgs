@@ -1,0 +1,37 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FastCollinearPoints",
+            "request": "launch",
+            "mainClass": "FastCollinearPoints",
+            "projectName": "week3_c917cdc6",
+            "args": "input48.txt"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Point",
+            "request": "launch",
+            "mainClass": "Point",
+            "projectName": "week3_c917cdc6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BruteCollinearPoints",
+            "request": "launch",
+            "mainClass": "BruteCollinearPoints",
+            "projectName": "week3_c917cdc6",
+            "args": "input48.txt"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}

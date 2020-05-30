@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Deque<assignments_6c494256>",
+            "request": "launch",
+            "mainClass": "Deque",
+            "projectName": "assignments_6c494256"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PercolationStats<assignments_6c494256>",
+            "request": "launch",
+            "mainClass": "PercolationStats",
+            "projectName": "assignments_6c494256"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Permutation<assignments_6c494256>",
+            "request": "launch",
+            "mainClass": "Permutation",
+            "projectName": "assignments_6c494256",
+            "args": "3 < duplicates.txt"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-RandomizedQueue<assignments_6c494256>",
+            "request": "launch",
+            "mainClass": "RandomizedQueue",
+            "projectName": "assignments_6c494256"
+        }
+    ]
+}
