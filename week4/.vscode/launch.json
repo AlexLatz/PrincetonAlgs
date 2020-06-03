@@ -16,6 +16,13 @@
             "request": "launch",
             "mainClass": "Board",
             "args": "puzzle05.txt"
+        },
+        {
+            "type": "java",
+            "name": "Solver test",
+            "request": "launch",
+            "mainClass": "Solver",
+            "args": "puzzle3x3-unsolvable.txt"
         }
     ]
 }
