@@ -7,31 +7,44 @@ import edu.princeton.cs.algs4.StdRandom;
 
 public class Board {
     private final int[][] board;
-    private final int[] zero;
-
+    private int zeroX;
+    private int zeroY;
+    private int twinY, twinX, sTwinY, sTwinX;
     public Board(final int[][] tiles) {
         this.board = clone2D(tiles);
-        this.zero = new int[2];
+        this.zeroX = 0;
+        this.zeroY = 0;
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[0].length; x++) {
                 if (board[y][x] == 0) {
-                    zero[0] = y;
-                    zero[1] = x;
+                    this.zeroY = y;
+                    this.zeroX = x;
                 }
             }
+        }
+        while (true) {
+            twinY = StdRandom.uniform(dimension());
+            twinX = StdRandom.uniform(dimension());
+            sTwinY = StdRandom.uniform(dimension());
+            sTwinX = StdRandom.uniform(dimension());
+            if (board[twinY][twinX] != 0 && board[sTwinY][sTwinX] != 0 && board[twinY][twinX] != board[sTwinY][sTwinX]) break;
         }
     }
 
     @Override
     public String toString() {
-        String s = board.length + "\n";
+        final StringBuilder s = new StringBuilder();
+        s.append(board.length);
+        s.append("\n");
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[0].length; x++) {
-                s += " " + board[y][x];
+                if (board[y][x]<10) s.append("  ");
+                else s.append(" ");
+                s.append(board[y][x]);
             }
-            s += "\n";
+            s.append("\n");
         }
-        return s;
+        return s.toString();
     }
 
     public int dimension() {
@@ -99,7 +112,9 @@ public class Board {
             if (that.dimension() != this.dimension())
                 return false;
             return Arrays.deepEquals(this.board, that.board);
-        } catch (final Exception e) {
+        } catch (final NullPointerException e) {
+            return false;
+        } catch (final ClassCastException c) {
             return false;
         }
     }
@@ -114,9 +129,9 @@ public class Board {
         final ArrayList<Board> boards = new ArrayList<>();
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[0].length; x++) {
-                if ((Math.abs(zero[0] - y) + Math.abs(zero[1] - x)) == 1) {
+                if ((Math.abs(zeroY - y) + Math.abs(zeroX - x)) == 1) {
                     final int[][] tmpA = clone2D(this.board);
-                    exch(tmpA, y, x, zero[0], zero[1]);
+                    exch(tmpA, y, x, zeroY, zeroX);
                     boards.add(new Board(tmpA));
                 }
             }
@@ -125,14 +140,8 @@ public class Board {
     }
 
     public Board twin() {
-        int[] swapA = zero;
-        int[] swapB = zero;
-        while (Arrays.equals(swapA, zero) || Arrays.equals(swapB, zero) || Arrays.equals(swapA, swapB)) {
-            swapA = new int[] { StdRandom.uniform(dimension()), StdRandom.uniform(dimension()) };
-            swapB = new int[] { StdRandom.uniform(dimension()), StdRandom.uniform(dimension()) };
-        }
         final int[][] clone = clone2D(this.board);
-        exch(clone, swapA[0], swapA[1], swapB[0], swapB[1]);
+        exch(clone, twinY, twinX, sTwinY, sTwinX);
         return new Board(clone);
     }
 
