@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SAP<week7_c917cdca>",
+            "request": "launch",
+            "mainClass": "SAP",
+            "projectName": "week7_c917cdca",
+            "args": "digraph1.txt"
+        },
+        {
+            "type": "java",
+            "name": "Outcast",
+            "request": "launch",
+            "mainClass": "Outcast",
+            "args": "synsets.txt hypernyms.txt outcast5.txt outcast8.txt outcast11.txt"
+        }
+    ]
+}
